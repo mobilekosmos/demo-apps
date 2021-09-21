@@ -1,5 +1,7 @@
 # Moralis Casino Dapp Demo
 
+https://mobilekosmos.github.io/demo-apps/casino-dapp
+
 Demo application of a coinflip bet application where the user can bet money on a double or nothing coinflip. 
 
 The app showcases:
