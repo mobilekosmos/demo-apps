@@ -5,7 +5,14 @@ async function login() {
     try {
         currentUser = Moralis.User.current();
         if(!currentUser){
-            currentUser = await Moralis.Web3.authenticate();
+            currentUser = await Moralis.authenticate({ 
+                provider: "walletconnect", 
+                mobileLinks: [
+                  "metamask",
+                  "trust",
+                ] ,
+                chainId: 3
+            })
         }
     } catch (error) {
         console.log(error);
