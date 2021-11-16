@@ -1,7 +1,6 @@
-// Application id from moralis.io
-Moralis.initialize('YOUR_APP_ID');
-//Server url from moralis.io
-Moralis.serverURL = 'YOUR_SERVER_URL';
+const serverUrl = "https://xxxxx.grandmoralis.com:2053/server"; //Server url from moralis.io
+const appId = "YOUR_APP_ID"; // Application id from moralis.io
+Moralis.start({ serverUrl, appId });
 
 const authButton = document.getElementById('btn-auth');
 const enableButton = document.getElementById('btn-enable');
@@ -44,8 +43,8 @@ function renderApp() {
 
 async function authenticate() {
   try {
-    user = await Moralis.Web3.authenticate({ provider });
-    web3 = await Moralis.Web3.enable({ provider });
+    user = await Moralis.authenticate({ provider });
+    web3 = await Moralis.enableWeb3({ provider });
   } catch (error) {
     console.log('authenticate failed', error);
   }
@@ -73,7 +72,7 @@ async function testCall() {
 
 async function enableWeb3() {
   try {
-    web3 = await Moralis.Web3.enable({ provider });
+    web3 = await Moralis.enableWeb3({ provider });
   } catch (error) {
     console.log('testCall failed', error);
   }
